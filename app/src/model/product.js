@@ -1,4 +1,5 @@
 const mgos = require('mongoose')
+const mgosPaginate = require('mongoose-paginate')
 
 const ProductSchema = new mgos.Schema({
     productName: {
@@ -13,5 +14,7 @@ const ProductSchema = new mgos.Schema({
         default: Date.now
     }
 });
+
+ProductSchema.plugin(mgosPaginate)
 
 mgos.model('Product', ProductSchema);

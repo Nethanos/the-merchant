@@ -12,7 +12,7 @@ module.exports = {
     async findProducts(req, res) {
         try {
             
-            let products = await Product.find();
+            let products = await Product.paginate({}, {page: 1, limit: 5});
     
             return res.json(products);
         }catch(e) {
