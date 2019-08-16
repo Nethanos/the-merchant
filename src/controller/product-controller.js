@@ -9,10 +9,14 @@ module.exports = {
         return res.json(product);
     },
 
-    async findProducts(req, res) {
+    async findProducts(req, res) {  
         try {
+            let { page = 0, limit } = req.query;   
+
+            //ISSO É UM BUG DO MONGGO
+            limit = +limit;
             
-            let products = await Product.paginate({}, {page: 1, limit: 5});
+            let products = await Product.paginate({}, {page, limit});
     
             return res.json(products);
         }catch(e) {

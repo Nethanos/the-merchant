@@ -1,8 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const requireDir = require('require-dir');
 
 const app = express();
+
+app.use(cors()); 
 
 app.use(express.json())
 
@@ -12,4 +15,4 @@ requireDir('./src/model');
 
 app.use('/laio', require("./src/routes"));
 
-app.listen(9001);
+app.listen(9002);
