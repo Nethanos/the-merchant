@@ -11,7 +11,7 @@ module.exports = {
 
     async findProducts(req, res) {  
         try {
-            let { page = 0, limit } = req.query;   
+            let { page = 1, limit = 5 } = req.query;   
 
             //ISSO É UM BUG DO MONGGO
             limit = +limit;
