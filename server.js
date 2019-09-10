@@ -5,14 +5,20 @@ const requireDir = require('require-dir');
 
 const app = express();
 
+const port = process.env.PORT || 9002
+
 app.use(cors()); 
 
-app.use(express.json())
+const uri = "mongodb+srv://apsn:root@laio-vppds.mongodb.net/laio?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true }).then( console.log("connected"));
 
-mongoose.connect('mongodb://localhost:27017/laio', {useNewUrlParser : true});
+
+app.use(express.json())
 
 requireDir('./src/model');
 
 app.use('/laio', require("./src/routes"));
 
-app.listen(9002);
+app.listen(port, () => {
+    console.log(`Lai.io rodando na porta ${port}`)
+});
