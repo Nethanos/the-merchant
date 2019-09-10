@@ -4,7 +4,7 @@
   "description": "Accounts Manager for micro entrepreneur",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha product-tests.js",
     "dev": "nodemon server.js"
   },
   "author": "Adeildo Neto - @Aneto",

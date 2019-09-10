@@ -11,15 +11,19 @@ module.exports = {
 
     async findProducts(req, res) {  
         try {
-            let { page = 1, limit = 5 } = req.query;   
+            let { page = 1, limit = 5, productName } = req.query;   
 
-            //ISSO É UM BUG DO MONGGO
+            let query = {
+                productName: productName ||
+            }
+
+            //ISSO É UM BUG DO MONGO
             limit = +limit;
             
             let products = await Product.paginate({}, {page, limit});
     
             return res.json(products);
-        }catch(e) {
+        } catch(e) {
                 throw new Error(e);
         }
     },
@@ -29,7 +33,7 @@ module.exports = {
         try{
             const product = await Product.create(req.body);
             return res.json(product.id);
-        }catch(e){
+        } catch(e){
             throw new Error(e)
         }
     },
@@ -50,7 +54,7 @@ module.exports = {
 
             return res.send();
 
-        }catch(e){
+        } catch(e){
 
         }
     }
