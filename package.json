@@ -1,10 +1,10 @@
 {
-  "name": "lai.io",
+  "name": "themerchant",
   "version": "1.0.0",
   "description": "Accounts Manager for micro entrepreneur",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha product-tests.js",
     "dev": "nodemon server.js"
   },
   "author": "Adeildo Neto - @Aneto",
@@ -13,6 +13,7 @@
     "axios": "^0.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "graphql": "^14.5.3",
     "mongoose": "^5.6.9",
     "mongoose-paginate": "^5.0.3",
     "require-dir": "^1.2.0"
