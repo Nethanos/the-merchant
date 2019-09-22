@@ -13,10 +13,7 @@ module.exports = {
         try {
             let { page = 1, limit = 5, productName } = req.query;   
 
-            let query = {
-                productName: productName ||
-            }
-
+        
             //ISSO É UM BUG DO MONGO
             limit = +limit;
             
@@ -33,8 +30,8 @@ module.exports = {
         try{
             const product = await Product.create(req.body);
             return res.json(product.id);
-        } catch(e){
-            throw new Error(e)
+        }catch(e){
+            throw new Error(e);
         }
     },
     
@@ -44,7 +41,7 @@ module.exports = {
 
             return res.json(product);
         } catch(e){
-            throw new Error(e)
+            throw new Error(e);
         }
     },
 
