@@ -19,7 +19,7 @@
     "require-dir": "^1.2.0"
   },
   "devDependencies": {
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.1"
   }
 }
